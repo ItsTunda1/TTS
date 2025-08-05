@@ -13,7 +13,12 @@ import soundfile as sf
 # fixing some weird error
 import torch
 from TTS.tts.configs import xtts_config
-torch.serialization.add_safe_globals([xtts_config.XttsConfig])
+from TTS.tts.models import xtts
+
+torch.serialization.add_safe_globals([
+    xtts_config.XttsConfig,
+    xtts.XttsAudioConfig
+])
 
 def main():
     # Get script directory (My Stuff)
