@@ -32,7 +32,7 @@ def main():
     tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2")
 
     text = "Hello, this is a custom voice from the My Stuff folder!"
-    speaker_wav = os.path.join(script_dir, "voices", "my_friend.wav")
+    speaker_wav = os.path.join(script_dir, "voices", "myvoice.wav")
 
     print("Synthesizing...")
     wav = tts.tts(
@@ -47,3 +47,16 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+'''
+Things to say:
+====================
+Hello! I'm testing this voice for cloning purposes.
+This is a simple sentence to evaluate pronunciation.
+Can you hear the difference in my tone when I ask a question?
+I hope this helps make my voice clearer in the model.
+'''
