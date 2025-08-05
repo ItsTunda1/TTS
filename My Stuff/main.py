@@ -27,7 +27,7 @@ torch.serialization.add_safe_globals([
     shared_configs.BaseDatasetConfig,
 ])
 
-def get_attention_mask(tokenizer, text):
+'''def get_attention_mask(tokenizer, text):
     encoding = tokenizer.encode(text)
     input_ids = encoding.ids
     pad_id = tokenizer.token_to_id("[PAD]")
@@ -42,7 +42,7 @@ def truncate_text_by_tokens(text, tokenizer, max_len):
         truncated_ids = input_ids[:max_len]
         truncated_text = tokenizer.decode(truncated_ids)
         return truncated_text
-    return text
+    return text'''
 
 def main():
     import os
@@ -55,7 +55,7 @@ def main():
     #tokenizer = tts.synthesizer.tts_model.tokenizer.tokenizer
 
     text = "Hello, this is a custom voice from the My Stuff folder!"
-    max_len = 25
+    #max_len = 25
     #text = truncate_text_by_tokens(text, tokenizer, max_len)
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
