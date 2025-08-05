@@ -21,19 +21,20 @@ def main():
 
     # Load the model
     print("Loading TTS model...")
-    tts = TTS("tts_models/en/ljspeech/tacotron2-DDC", gpu=False)  # change model or gpu as needed
+    #tts = TTS("tts_models/en/ljspeech/tacotron2-DDC", gpu=False)  # change model or gpu as needed
     # Load your model (use your exact model name here)
-    '''tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2", gpu=True)
+    tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2", gpu=True)
 
     # Print all available speakers (voices)
-    print(tts.synthesizer.tts_model.speaker_manager.speakers.keys())''''
+    print(tts.synthesizer.tts_model.speaker_manager.speakers.keys())
+    speaker = "Zacharie Aimilios"
 
     # Text to synthesize
-    text = "Hello, this is Zacharie speaking from the My Stuff folder!"
+    text = f"Hello, this is {speaker} speaking from the My Stuff folder!"
 
     # Synthesize audio
     print("Synthesizing...")
-    wav = tts.tts(text)
+    wav = tts.tts(text, speaker=speaker, language="en")
 
     # Output path relative to script dir
     output_path = os.path.join(script_dir, "output.wav")
