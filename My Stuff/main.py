@@ -1,6 +1,11 @@
 import os
 import sys
 
+# eSpeak backend
+espeak_path = r"C:\Program Files\eSpeak NG"
+os.environ["PATH"] += os.pathsep + espeak_path
+
+
 # Add parent folder (TTS-webui) to sys.path
 script_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.abspath(os.path.join(script_dir, ".."))
@@ -19,6 +24,7 @@ from TTS.config import shared_configs
 torch.serialization.add_safe_globals([
     xtts_config.XttsConfig,
     xtts.XttsAudioConfig,
+    xtts.XttsArgs,
     shared_configs.BaseDatasetConfig,
 ])
 
@@ -33,20 +39,19 @@ def main():
 
     # Load the model
     print("Loading TTS model...")
-    #tts = TTS("tts_models/en/ljspeech/tacotron2-DDC", gpu=False)  # change model or gpu as needed
-    # Load your model (use your exact model name here)
-    tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2", gpu=True)
+    # Load a multi-speaker model (example)
+    tts = TTS("tts_models/en/vctk/vits")
 
-    # Print all available speakers (voices)
-    print(tts.synthesizer.tts_model.speaker_manager.speakers.keys())
-    speaker = "Zacharie Aimilios"
+    # List available models
+    print(tts.speakers)
+    speaker = "p232"
 
     # Text to synthesize
     text = f"Hello, this is {speaker} speaking from the My Stuff folder!"
 
     # Synthesize audio
     print("Synthesizing...")
-    wav = tts.tts(text, speaker=speaker, language="en")
+    wav = tts.tts(text, speaker=speaker)
 
     # Output path relative to script dir
     output_path = os.path.join(script_dir, "output.wav")
