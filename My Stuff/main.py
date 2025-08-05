@@ -10,6 +10,11 @@ if parent_dir not in sys.path:
 from TTS.api import TTS
 import soundfile as sf
 
+# fixing some weird error
+import torch
+from TTS.tts.configs import xtts_config
+torch.serialization.add_safe_globals([xtts_config.XttsConfig])
+
 def main():
     # Get script directory (My Stuff)
     script_dir = os.path.dirname(os.path.abspath(__file__))
