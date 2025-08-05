@@ -27,11 +27,38 @@ torch.serialization.add_safe_globals([
     shared_configs.BaseDatasetConfig,
 ])
 
+def get_attention_mask(tokenizer, text):
+    encoding = tokenizer.encode(text)
+    input_ids = encoding.ids
+    pad_id = tokenizer.token_to_id("[PAD]")
+    attention_mask = [0 if token == pad_id else 1 for token in input_ids]
+    return attention_mask
+
+def truncate_text_by_tokens(text, tokenizer, max_len):
+    encoding = tokenizer.encode(text)
+    input_ids = encoding.ids
+    if len(input_ids) > max_len:
+        print(f"Truncating input tokens from {len(input_ids)} to {max_len}.")
+        truncated_ids = input_ids[:max_len]
+        truncated_text = tokenizer.decode(truncated_ids)
+        return truncated_text
+    return text
+
 def main():
+    import os
+    import soundfile as sf
+    from TTS.api import TTS
+
     print("Loading TTS model...")
     tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2")
 
+    tokenizer = tts.synthesizer.tts_model.tokenizer.tokenizer
+
     text = "Hello, this is a custom voice from the My Stuff folder!"
+    max_len = 25
+    text = truncate_text_by_tokens(text, tokenizer, max_len)
+
+    script_dir = os.path.dirname(os.path.abspath(__file__))
     speaker_wav = os.path.join(script_dir, "voices", "myvoice.wav")
 
     print("Synthesizing...")
