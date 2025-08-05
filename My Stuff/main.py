@@ -14,10 +14,12 @@ import soundfile as sf
 import torch
 from TTS.tts.configs import xtts_config
 from TTS.tts.models import xtts
+from TTS.config import shared_configs
 
 torch.serialization.add_safe_globals([
     xtts_config.XttsConfig,
-    xtts.XttsAudioConfig
+    xtts.XttsAudioConfig,
+    shared_configs.BaseDatasetConfig,
 ])
 
 def main():
