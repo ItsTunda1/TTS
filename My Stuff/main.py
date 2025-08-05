@@ -54,7 +54,7 @@ def main():
 
     #tokenizer = tts.synthesizer.tts_model.tokenizer.tokenizer
 
-    text = "Hello, this is a custom voice from the My Stuff folder!"
+    text = "Hello, this is techno's voice! hehe HAHA!"
     #max_len = 25
     #text = truncate_text_by_tokens(text, tokenizer, max_len)
 
