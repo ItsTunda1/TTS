@@ -52,11 +52,11 @@ def main():
     print("Loading TTS model...")
     tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2")
 
-    tokenizer = tts.synthesizer.tts_model.tokenizer.tokenizer
+    #tokenizer = tts.synthesizer.tts_model.tokenizer.tokenizer
 
     text = "Hello, this is a custom voice from the My Stuff folder!"
     max_len = 25
-    text = truncate_text_by_tokens(text, tokenizer, max_len)
+    #text = truncate_text_by_tokens(text, tokenizer, max_len)
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
     speaker_wav = os.path.join(script_dir, "voices", "myvoice.wav")
