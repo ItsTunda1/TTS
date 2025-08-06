@@ -54,12 +54,12 @@ def main():
 
     #tokenizer = tts.synthesizer.tts_model.tokenizer.tokenizer
 
-    text = "Hello, this is techno's voice! hehe HAHA!"
+    text = "Hello, this is neil's voice! hehe HAHA!"
     #max_len = 25
     #text = truncate_text_by_tokens(text, tokenizer, max_len)
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    speaker_wav = os.path.join(script_dir, "voices", "techn0.mp3")
+    speaker_wav = os.path.join(script_dir, "voices", "neil.mp3")
 
     print("Synthesizing...")
     wav = tts.tts(
