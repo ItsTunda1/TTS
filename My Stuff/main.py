@@ -54,7 +54,7 @@ def main():
 
     #tokenizer = tts.synthesizer.tts_model.tokenizer.tokenizer
 
-    text = "Hello, this is neil's voice! hehe HAHA!"
+    text = "The quick brown fox!"
     #max_len = 25
     #text = truncate_text_by_tokens(text, tokenizer, max_len)
 
