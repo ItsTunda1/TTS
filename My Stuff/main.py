@@ -59,7 +59,7 @@ def main():
     #text = truncate_text_by_tokens(text, tokenizer, max_len)
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    speaker_wav = os.path.join(script_dir, "voices", "neil.mp3")
+    speaker_wav = os.path.join(script_dir, "voices", "neil_1-30.mp3")
 
     print("Synthesizing...")
     wav = tts.tts(
@@ -86,4 +86,56 @@ Hello! I'm testing this voice for cloning purposes.
 This is a simple sentence to evaluate pronunciation.
 Can you hear the difference in my tone when I ask a question?
 I hope this helps make my voice clearer in the model.
+'''
+
+
+
+
+'''
+Better Training Things:
+==========================
+🗣️ Neutral Sentences (Clarity & Phoneme Coverage)
+Hello, my name is [your name], and this is my voice.
+
+The quick brown fox jumps over the lazy dog.
+
+She sells seashells by the seashore.
+
+Peter Piper picked a peck of pickled peppers.
+
+I saw a movie last night and it was amazing.
+
+Tomorrow is a brand new day with endless possibilities.
+
+Can you believe how fast time flies?
+
+I enjoy reading books, watching movies, and spending time outdoors.
+
+😄 Happy & Upbeat
+Wow, this is incredible! I can't wait to try it out!
+
+That’s one of the best things I’ve heard all week.
+
+I'm really excited to be part of this project.
+
+😐 Calm & Neutral
+Please follow the instructions carefully to continue.
+
+I understand. Let’s take it one step at a time.
+
+The weather today is slightly cloudy with a chance of rain.
+
+😠 Frustrated / Concerned
+I told you not to press that button!
+
+This doesn’t make any sense — what are we missing?
+
+That’s really not what I expected to happen.
+
+❓ Questions & Intonation Variety
+What do you mean by that?
+
+Are we really going to do this?
+
+How long will it take to get there?
 '''
