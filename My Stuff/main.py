@@ -59,7 +59,7 @@ def main():
     #text = truncate_text_by_tokens(text, tokenizer, max_len)
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    speaker_wav = os.path.join(script_dir, "voices", "neil_1-30.mp3")
+    speaker_wav = os.path.join(script_dir, "voices", "techn0.mp3")
 
     print("Synthesizing...")
     wav = tts.tts(
